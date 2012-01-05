@@ -1,0 +1,1040 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE>Heresy</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 2.3  (Win32)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Matthew Lamari">
+	<META NAME="CHANGED" CONTENT="20081128;11504270">
+	<META NAME="ProgId" CONTENT="Word.Document">
+	<META NAME="Originator" CONTENT="Microsoft Word 11">
+	<META NAME="CHANGEDBY" CONTENT="Matthew Lamari">
+	<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+	<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>BestFit</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+	<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>   </o:DocumentProperties>
+</xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="15362">
+  <o:colormenu v:ext="edit" fillcolor="silver"/>
+ </o:shapedefaults></xml><![endif]-->
+	<!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+	<STYLE TYPE="text/css">
+	<!--
+		P { color: #000000 }
+		H2 { color: #000000 }
+		H3 { color: #000000 }
+		A:link { color: #0000ff }
+		A:visited { color: #800080 }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" TEXT="#000000" LINK="#0000ff" VLINK="#800080" DIR="LTR">
+<P><A NAME="_x0000_i1025"></A><A HREF="http://sourceforge.net/"><IMG SRC="http://sflogo.sourceforge.net/sflogo.php?group_id=204995&amp;type=1" NAME="graphics1" ALT="SourceForge.net Logo" ALIGN=BOTTOM WIDTH=88 HEIGHT=31 BORDER=0></A></P>
+<H2>HERESY &ndash; Haskellesque lazy-list and functional tools with a
+Common Lisp slant.</H2>
+<P><BR>&nbsp;</P>
+<H3><A NAME="abstract"></A>Abstract</H3>
+<P>Heresy is a list of utilities for lazy and functional programming
+in Common Lisp.&nbsp; Function names are chosen and decorated so as
+to resemble Haskell and/or CL equivalents; but to allow full import
+of exported symbols into a typical namespace.</P>
+<P>&nbsp;</P>
+<P>The lazy-list functions provided are for when the memory/cpu
+profile of lazy list evaluation, or list-based solutions requiring
+lazy evaluation (such as self-referencing lists, or sequences with
+issues running beyond some termination point) are desired.&nbsp;
+Expressive interoperation/conversion between CL sequences and
+lazy-lists, and control over degree of &ldquo;laziness&rdquo; are
+design goals.&nbsp; Lists can be heterogeneous (containing elements
+of different types), and functions named after Haskell list
+equivalents may be altered for lispiness.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>The code comes with a <A HREF="http://www.opensource.org/licenses/bsd-license.php">BSD-style
+license</A> so you can basically do with it whatever you want. 
+</P>
+<P>&nbsp;</P>
+<P>Heresy library source can be downloaded at
+<A HREF="http://sourceforge.net/projects/cl-heresy/">http://sourceforge.net/projects/cl-heresy/</A></P>
+<P>&nbsp;</P>
+<P>Heresy is listed at <A HREF="http://www.cl-user.net/asp/libs/Heresy">http://www.cl-user.net/asp/libs/Heresy</A></P>
+<P>&nbsp;</P>
+<P>I&rsquo;ll attempt to obtain a mailing list as soon as possible.</P>
+<P>&nbsp;</P>
+<H3>Highlights/Examples</H3>
+<P><I>Naming conventions:</I></P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">Generally, function names and call
+signatures are chosen to replicate a Haskell, CL or both - generally
+with a trailing / .</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(list/ 3 2 1 0)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; returns lazy-list (3 2 1 0)</P>
+<P STYLE="margin-left: 1in">(map/ #'+ (list/ 1 2 3) (list/ 4 5 6))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; returns lazy-list (5 7 9)</P>
+<P STYLE="margin-left: 1in">(nub-by/ &lsquo;equal (list/ 1 4 2 3 2
+1))&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; loose equivalent of haskell&rsquo;s nubBy</P>
+<P STYLE="margin-left: 1in">(tail/ (list/ 1 2 3 4)) or (cdr/ (list/ 1
+2 3 4))&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; ; returns
+tail of the list</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><I>Interoperability:</I></P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">Lazy-list functions accept lazy-lists as
+well as CL strings, lists and arrays (leveraging optimizations where
+possible).&nbsp; Multi-dimension arrays are turned into lazy-lists of
+lazy-lists.</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(map/ #'list &quot;Hello&quot; (list 1 2
+3) #(4 5 6) (list/ &ldquo;X&rdquo; &ldquo;Y&rdquo; &ldquo;Z&rdquo;))&nbsp;&nbsp;&nbsp;&nbsp;
+; returns lazy-list ((#\H 1 4 &quot;X&quot;) (#\e 2 5 &quot;Y&quot;)
+(#\l 3 6 &quot;Z&quot;) )</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">to-array, to-string, to-list evaluate
+lazy-list (run to its end) into their respective CL types.</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(<FONT COLOR="#000000"><B>to-array</B></FONT>
+(map/ #'+ (list/ 1 2 3) (list/ 4 5 6)))&nbsp;&nbsp;&nbsp; ; returns
+array #(5 7 9)</P>
+<P STYLE="margin-left: 1in">(<B>to-list</B> (map/ #'+ (list/ 1 2 3)
+(list/ 4 5 6)))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; returns
+CL proper list (5 7 9)</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><I>Self-referencing lists:</I></P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">The clich&eacute;d Fibonacci example:</P>
+<P STYLE="margin-left: 1in">(Request 1000000<SUP>th</SUP> element in
+Fibonacci sequence using self-referencing list)</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(nth/ 1000000</P>
+<P STYLE="margin-left: 1in">&nbsp;(<FONT COLOR="#008000"><B>self-ref-list/</B></FONT>
+<FONT COLOR="#0000ff"><B>fib</B></FONT> (list*/ 1 1 (map/ #'+ <FONT COLOR="#0000ff"><B>fib</B></FONT>
+(tail/ <FONT COLOR="#0000ff"><B>fib</B></FONT>)))))</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">; self-ref-list internally memoized (to
+allow order-n solution); but with deferred creation (until extract
+time) to prevent storage bloat by holders of list reference.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><I>Control over laziness:</I></P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">&nbsp;(defparameter my-list '(1 2 3 4 5))</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">&nbsp;(<FONT COLOR="#008000"><B>eager</B></FONT>
+(<FONT COLOR="#0000ff">tail/</FONT> (<FONT COLOR="#0000ff">tail/</FONT>
+my-list))) ; returns lazy-list that internally points to subset of
+my-list list '(3 4)</P>
+<P STYLE="margin-left: 1in">&nbsp;(<FONT COLOR="#008000"><B>lazy</B></FONT>
+(<FONT COLOR="#0000ff">tail/</FONT> (<FONT COLOR="#0000ff">tail/</FONT>
+my-list)))&nbsp;&nbsp; ; returns lazy-list that has traversal through
+2 elements deferred (until first request) &ndash; closure internally
+references my-list '(1 2 3 4)</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><I>Convenient, functional lazy parsing/decomposition of data
+structures:</I></P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">This example &ldquo;picks apart&rdquo;
+the contents of a CSV (comma separated value) file, which <I>can</I>
+be a lazy-list of chars.&nbsp; It handles the case of commas in
+strings, and doesn&rsquo;t use them as the basis of a list.&nbsp; The
+result is a lazy-list of lazy-lists representing the comma-separated
+sections.</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(The algorithm basically converts each
+line&rsquo;s chars into (cons char is-quote), then scanl/&rsquo;s
+these to mark each char as &ldquo;in quotes&rdquo;, to use as a basis
+for split only on commas that are not in quotes, i.e. &lsquo;(#\, .
+NIL)&nbsp; )</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(defparameter </FONT></TT><TT><FONT SIZE=2><B>csv-file</B></FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TT><TT><FONT SIZE=2>&quot;1,2,
+3 , I contain \&quot; Quoted, commas, \&quot; you see, 99</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TT><TT><FONT SIZE=2>g,
+\&quot;hijk\&quot;lmn</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TT><TT><FONT SIZE=2>third_line,stuff here&quot;)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(map/ (curried #'map/ (composed #'to-string
+(curried #'map/ #'car)))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;</TT><TT><FONT SIZE=2>(map/ (composed</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TT><TT><FONT SIZE=2>(lambda (line) (split-down-on-test/ (curried
+</FONT></TT><TT><FONT SIZE=2><B>#'equal '(#\, . nil)</B></FONT></TT><TT><FONT SIZE=2>)
+line))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TT><TT><FONT SIZE=2>(curried #'scanl1/ (lambda (a b) (cons (car b)
+(if (cdr a) (not (cdr b)) (cdr b)))))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TT><TT><FONT SIZE=2>(curried #'map/ (lambda (elt) (cons elt </FONT></TT><TT><FONT SIZE=2><B>(eql
+elt #\&quot;)))))</B></FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TT><TT><FONT SIZE=2>(split-down-on-test/ (curried #'eql #\newline)
+</FONT></TT><TT><FONT SIZE=2><B>csv-file</B></FONT></TT><TT><FONT SIZE=2>)))</FONT></TT></P>
+<P STYLE="margin-left: 1in">Returns the result:</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(LIST/</P>
+<P STYLE="margin-left: 1in">&nbsp;(LIST/ &quot;1&quot; &quot;2&quot;
+&quot; 3 &quot; &quot; I contain \&quot; Quoted, commas, \&quot; you
+see&quot; &quot; 99&quot;)</P>
+<P STYLE="margin-left: 1in">&nbsp;(LIST/ &quot;g&quot; &quot;
+\&quot;hijk\&quot;lmn&quot;)</P>
+<P STYLE="margin-left: 1in">&nbsp;(LIST/ &quot;third_line&quot;
+&quot;stuff here&quot;))</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P>&nbsp;</P>
+<H3>Installation:</H3>
+<P>Install from <A HREF="http://www.sourceforge.net/">www.sourceforge.net</A></P>
+<P>Heresy is asdf-compliant.</P>
+<P>(use-package :heresy) is recommended as the functions are intended
+to be used frequently, and the symbols were chosen so as to not clash
+with known libraries.</P>
+<P>&nbsp;</P>
+<H3>Performance:</H3>
+<P>Heresy&rsquo;s lazy-list operations are generally functions that
+accept values and functions &ndash; in a straight-up example, map/
+(plus expansion of its emitted list) cannot match the CPU performance
+of a straight-up mapcar/.&nbsp; Loop/while can generally outrun the
+expanded map/ and filter/ equivalent.&nbsp; In typical use, any given
+expression may be composed of both lazy-list and CL functions.</P>
+<P>&nbsp;</P>
+<P>What lazy-list use can do is alter the memory profile of a
+solution, or relocate the performance hit of expensive list
+traversals to the user rather than the definer.</P>
+<P>&nbsp;</P>
+<P>The memory advantages may be realized through creation of
+lazy-lists that &ldquo;contain&rdquo; large objects &ndash; this list
+may be declared in terms of functional constructs without the static
+memory requirement of keeping them all in RAM.&nbsp; If the end-user
+of this list filters them, or uses them in a loop, or uses/discards
+them as the basis for a subsequent computation, the system may only
+have one in RAM (and uncollectable) at a time.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">(defun make-lazy-list-of-huge-results
+(inputs)</P>
+<P STYLE="margin-left: 1in">&nbsp; (map/ #'make-huge-result inputs))</P>
+<P STYLE="margin-left: 1in">; returns lazy-list of huge-results</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in">(let ((<B>huge-results</B>
+(make-lazy-list-of-huge-results inputs)))&nbsp; ; minimal memory
+footprint, no huge results actually created yet.</P>
+<P STYLE="margin-left: 1in">&nbsp; (map/ #'make-small-result
+<B>huge-results</B>))&nbsp;&nbsp; ; huge-results created and
+discarded one at a time.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H3>Thread-Safety:</H3>
+<P>Thread-safety is designed in; but presently deactivated.&nbsp; It
+will generally entail function call contexts similar to <I>Eager</I>
+and <I>Lazy</I> ; but come with a significant performance cost
+wherever used (first-time traversal of certain memoized sequences, or
+operations that work internally in terms of them, will pay a locking
+pentalty).</P>
+<P>&nbsp;</P>
+<P>Thread-safety will be reactivated in a future release, along with
+a dependency upon <A HREF="http://common-lisp.net/project/bordeaux-threads/">Bordeaux-threads</A>.</P>
+<P>&nbsp;</P>
+<P>In heresy&rsquo;s current non-thread-safe guise, it is advisable
+to have any lazy-list or fragment thereof only available for read,
+evaluation or traversal by one thread at a time.&nbsp; To be
+extra-safe, consider only transferring frozen containers (proper
+lists, arrays) between threads.</P>
+<P>&nbsp;</P>
+<H3>Functions:</H3>
+<P>Note:&nbsp; Unless otherwise specified, functions accepting lists
+as parameters will accept <I>any</I> lazy-list, proper list, or other
+CL sequence, any of which can be heterogeneous.&nbsp; In this regard,
+strings are considered lists of type character.&nbsp; Lazy-lists that
+are direct wrappers for strings, vectors or arrays will maintain a
+reference to the entire array, even if they represent only a subset
+of the array&rsquo;s values.&nbsp; (Where retention of the original
+container is undesirable, they, or a derived result result, should be
+evaluated into a new non-lazy container).</P>
+<P>&nbsp;</P>
+<P>Unless otherwise specified, functions return lazy-lists (although
+where possible, these are internally indicated as being based on a
+static container for optimizations in other functions).</P>
+<P>&nbsp;</P>
+<P>Where possible, functions accepting lists switch on/are optimized
+for lists or sequences, or for lazy-lists that happen to be wrapping
+lazy-lists.</P>
+<P>&nbsp;</P>
+<H3><FONT SIZE=3>Interoperability:</FONT></H3>
+<P>&nbsp;</P>
+<P><A NAME="string-from-chars/"></A>[Function]<BR><B>string-from-chars/</B>
+<I>chars-list</I> =&gt; <I>result</I> 
+</P>
+<P><I>Equivalent to to-string</I></P>
+<P>Evaluates the provided char-list (which can be a lazy-list or CL
+sequence) to its end, concatenating all chars into a single string.&nbsp;
+Call will fail if any elements in its input list are non-characters.</P>
+<P><A NAME="to-list"></A>&nbsp;[Function]<BR><B>to-list</B> <I>list</I>
+=&gt; <I>CL proper list</I> 
+</P>
+<P>Returns the input list in proper-list form &ndash; evaluating all
+values to the end.</P>
+<P>&nbsp;</P>
+<P>[Function]<BR><B>to-array</B> <I>list </I><TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT>
+<I>array-params</I> =&gt; <I>CL Array</I> 
+</P>
+<P>Returns the input list in array form &ndash; evaluating all values
+to the end.&nbsp; Any (optional) <I>array-params</I> provided are fed
+to an internal call to common-lisp::make-array &ndash; see the CL
+spec for documentation on its &amp;key parameters.</P>
+<P>&nbsp;</P>
+<P>[Generic function]<BR><B>to-string</B> <I>chars-list</I> =&gt;
+<I>string</I></P>
+<P><I>Equivalent to sstring-from-chars/</I></P>
+<P>Evaluates the provided char-list (which can be a lazy-list or CL
+sequence) to its end, concatenating all chars into a single string.&nbsp;
+Call will fail if any elements in its input list are non-characters.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<H3><FONT SIZE=3>Meat and Potatoes:</FONT></H3>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><A NAME="and/"></A>[Function]<BR><B>and/</B> <I>list</I> =&gt;
+<I>last element in list or NIL</I> 
+</P>
+<P>Returns nil if any element in the provided <I>list</I> is nil,
+otherwise returns the last element 
+</P>
+<P><A NAME="append/"></A><BR><!-- End of entry for AND/ --><!-- Entry for APPEND/ -->[Function]<BR><B>append/</B>
+<TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT> <I>lists</I> =&gt;
+<I>lazy-list of inputs chained consecutively</I> 
+</P>
+<P>Lazy equivalent of CL&rsquo;s <I>append</I> &ndash; returns a
+lazy-list of its input lists (which can be CL sequences or
+lazy-lists) chained end to end.&nbsp; Internally implemented in terms
+of <I>concat/</I></P>
+<P><A NAME="assoc/"></A><BR><!-- End of entry for APPEND/ --><!-- Entry for ASSOC/ -->[Function]<BR><B>assoc/</B>
+<I>item alist </I><TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT>
+<I>assoc-rest-params</I> =&gt; <I>found result or NIL</I></P>
+<P>Equivalent of CL&rsquo;s <I>assoc</I> &ndash; accepts a lazy-list
+of cons-cells, returns a found result or nil.&nbsp; The &amp;key
+params in <I>assoc-rest-params</I> work as equivalents to those in
+CL&rsquo;s <I>assoc</I>.</P>
+<P>&nbsp;</P>
+<P>[Function]<BR><B>car/, cdr/, cadr/, c****r/</B> <TT><FONT SIZE=2><I>&amp;list</I></FONT></TT>
+=&gt; <I>Result</I></P>
+<P>Lazy-list substitutes for CL&rsquo;s car, cdr, cadr, etc.&nbsp;
+Implemented up to 5 composing characters.</P>
+<P>Any <I>car </I>components result in instant traversal to obtain
+the first value in a lazy-list.</P>
+<P>Any <I>cdr</I> components to the function called request traversal
+based on the current &ldquo;laziness&rsquo; context.</P>
+<P>&nbsp;</P>
+<P><I>In Eager context:</I> <I>cdr</I> components traverse
+immediately, returning the new head of the list.</P>
+<P><I>In Lazy context: cdr</I> components return the original list +
+deferred traversal &ndash; true traversal only occurs on first
+traversal of the result.&nbsp; Performance Warning:&nbsp; In a <I>Lazy</I>
+context, <I>cdr/</I> (or composed equivalent) of a lazy-list stores
+the original list + the traverser, so lazy <I>cdr/</I> of a list
+that&rsquo;s holding a certain amount of RAM won&rsquo;t alter the
+required RAM.</P>
+<P><A NAME="composed"></A><BR>[Function]<BR><B>composed</B> <TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT>
+<I>functions</I> =&gt; <I>composition of functions</I> 
+</P>
+<P>Composes functions provided as parameters.</P>
+<P>(composed #'aa #'bb) returns a function that calls #'bb on its
+params, then passes the result to a call to #'aa</P>
+<P><A NAME="concat/"></A><BR><!-- End of entry for COMPOSED --><!-- Entry for CONCAT/ -->[Function]<BR><B>concat/</B>
+<I>list-of-lists</I> =&gt; <I>lazy-list of inputs chained
+consecutively</I></P>
+<P>Returns the provided list-of-lists concatenated consecutively, as
+a lazy-list.&nbsp; Uses various internal optimizations based upon
+their input types.&nbsp; Input parameter <I>list-of-lists</I> is only
+traversed as the result traversal reaches the end of each sub-list&rsquo;s
+values.</P>
+<P><A NAME="curried"></A><BR><!-- End of entry for CONCAT/ --><!-- Entry for CURRIED -->[Function]<BR><B>curried</B>
+<I>function </I><TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT> <I>largs</I>
+=&gt; <I>function</I></P>
+<P>Returns a function that applies <I>largs</I> + its parameters to
+<I>function</I></P>
+<P><A NAME="drop-while/"></A><BR><!-- End of entry for CURRIED --><!-- Entry for DROP-WHILE/ -->[Function]<BR><B>drop-while/</B>
+<I>test list</I> =&gt; <I>lazy-list</I></P>
+<P>Returns a list that has elements dropped from <I>list</I> while
+function <I>test</I> applied to the list element is non-NIL, or end
+is reached.</P>
+<P><I>In Eager context: </I>Traverses list immediately, returning
+only from first where <I>test</I> returns NIL.</P>
+<P><I>In Lazy context:</I> Does not traverse <I>list</I> on call &ndash;
+first traversal of result will trigger test to find first non-NIL.&nbsp;
+(Storage warning:&nbsp; result will keep references to original list
++ the test function).</P>
+<P><A NAME="drop/"></A><BR><!-- End of entry for DROP-WHILE/ --><!-- Entry for DROP/ -->[Function]<BR><B>drop/</B>
+<I>to-drop list</I> =&gt; <I>lazy-list</I></P>
+<P><I>Identical to nthcdr/</I></P>
+<P>Returns lazy-list with first <I>to-drop</I> elements
+skipped/traversed from list, or empty list if end reached..</P>
+<P><I>In Eager context: </I>Traverses list immediately, returning
+sub-list after <I>drop-list</I> traversals..</P>
+<P><I>In Lazy context:</I> Does not traverse <I>list</I> on call &ndash;
+first traversal of result will trigger traversal of <I>list</I> until
+<I>to-drop</I> elements are skipped or end is found.&nbsp; (Storage
+warning:&nbsp; result will internally keep references to original
+list + to-drop).</P>
+<P><A NAME="eager"></A><BR><!-- End of entry for DROP/ --><!-- Entry for EAGER -->[Macro]<BR><B>eager</B>
+<I>declaration* statement*</I> =&gt; <I>result</I> 
+</P>
+<P>Enters an &quot;Eager&quot; context - calls to functions such as
+tail/ do traversal before returning. This context uses a special
+variable, and extends into sub-calls until overridden.&nbsp; Eager
+context is the default.&nbsp; Relevant functions are documented with
+their respective context effects.</P>
+<P><A NAME="filter/"></A><BR><!-- End of entry for EAGER --><!-- Entry for FILTER/ -->[Function]<BR><B>filter/</B>
+<I>predicate list</I> =&gt; <I>lazy-list</I></P>
+<P>Traversal of the resultant list skips any <I>list</I> elements for
+which running <I>predicate</I> against the element fails.</P>
+<P>(Storage warning:&nbsp; resultant list will internally keep
+references to original list + predicate).</P>
+<P><A NAME="first/"></A><BR><!-- End of entry for FILTER/ --><!-- Entry for FIRST/ -->[Function]<BR><B>first/</B>
+<I>list</I> =&gt; <I>value</I></P>
+<P>Lazy-list equivalent of CL&rsquo;s <I>first</I> function.&nbsp;
+Returns first element in a list, or NIL if nothing present.</P>
+<P><A NAME="foldl/"></A><BR><!-- End of entry for FIRST/ --><!-- Entry for FOLDL/ -->[Function]<BR><B>foldl/</B>
+<I>function first list</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent of Haskell&rsquo;s foldl &ndash; better explained on
+the net.</P>
+<P><A NAME="foldl1/"></A><BR><!-- End of entry for FOLDL/ --><!-- Entry for FOLDL1/ -->[Function]<BR><B>foldl1/</B>
+<I>function list</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent of Haskell&rsquo;s foldl1 &ndash; foldl with the first
+in the list used as <I>first</I></P>
+<P><A NAME="foldr/"></A><BR><!-- End of entry for FOLDL1/ --><!-- Entry for FOLDR/ -->[Function]<BR><B>foldr/</B>
+<I>function first list</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent of Haskell&rsquo;s foldr &ndash; better explained on
+the net.</P>
+<P><A NAME="foldr1/"></A><BR><!-- End of entry for FOLDR/ --><!-- Entry for FOLDR1/ -->[Function]<BR><B>foldr1/</B>
+<I>function list</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent of Haskell&rsquo;s foldr1 &ndash; foldr with the first
+in the list used as <I>first</I></P>
+<P><A NAME="grouped-by-firsts-in-cons-pairs/"></A><BR><!-- End of entry for FOLDR1/ --><!-- Entry for GROUPED-BY-FIRSTS-IN-CONS-PAIRS/ -->[Function]<BR><B>grouped-cdrs-by-car/</B>
+<I>list-of-cons-pairs </I><TT><FONT SIZE=2><I>&amp;key</I></FONT></TT>
+<I>test</I> =&gt; <I>key-&gt;values-list pairs list, lookup function</I>
+</P>
+<P>Basically &ndash; a very useful orthogonal way to interact
+functionally with a hash-table.</P>
+<P><BR>Takes a lazy-list or sequence of cons pairs, of the form
+(first . second) - returns a list of conses of the form (first .
+(second 0 second1 second2 second3....)) as the first value, where the
+seconds are matches on first.</P>
+<P>&nbsp;</P>
+<P>Second return value is a function, that returns a list of seconds
+based on a search key/first as first value, found (T or NIL) as
+second.</P>
+<P>&nbsp;</P>
+<P><I>In Eager context: </I>grouped-cdrs-by-car/ calculates the
+internal hash immediately.</P>
+<P><I>In Lazy context:</I> &nbsp;<I>T</I>he creation of the internal
+hash is deferred &ndash; it is created either on traversal of the
+resultant list, or execution of the second return value. 
+</P>
+<P>&nbsp;</P>
+<P><I>Example:</I></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(grouped-cdrs-by-car/ '((</FONT></TT><TT><FONT SIZE=2><B>1</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>. 2) (</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>. </FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>4</FONT></FONT></TT><TT><FONT SIZE=2>)
+(</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+</FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>5</FONT></FONT></TT><TT><FONT SIZE=2>)
+(</FONT></TT><TT><FONT SIZE=2><B>3</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+9) (</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+</FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>7</FONT></FONT></TT><TT><FONT SIZE=2>)))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(LIST/ (</FONT></TT><TT><FONT SIZE=2><B>1</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>2) (</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT>
+</TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>4 5 7</FONT></FONT></TT><TT><FONT SIZE=2>)
+(</FONT></TT><TT><FONT SIZE=2><B>3</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>9));
+first result value = lazy-list of (cons </FONT></TT><TT><FONT SIZE=2><B>key</B></FONT></TT><TT>
+</TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>values-list</FONT></FONT></TT><TT><FONT SIZE=2>)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>#&lt;Function&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; second result value is a lookup function</FONT></TT></P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(defparameter </FONT></TT><TT><FONT SIZE=2><B>x</B></FONT></TT></P>
+<P STYLE="margin-left: 1.5in"><TT><FONT SIZE=2>(</FONT></TT><TT><FONT SIZE=2><B>multiple-value-list</B></FONT></TT></P>
+<P STYLE="margin-left: 2in"><TT><FONT SIZE=2>(grouped-cdrs-by-car/
+'((</FONT></TT><TT><FONT SIZE=2><B>1</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+2) (</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+</FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>4</FONT></FONT></TT><TT><FONT SIZE=2>)
+(</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+</FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>5</FONT></FONT></TT><TT><FONT SIZE=2>)
+(</FONT></TT><TT><FONT SIZE=2><B>3</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+9) (</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>.
+</FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>7</FONT></FONT></TT><TT><FONT SIZE=2>)))))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>X&nbsp;&nbsp; ; x now
+contains first and second return-values consecutively in a CL proper
+list.</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(first </FONT></TT><TT><FONT SIZE=2><B>x</B></FONT></TT><TT><FONT SIZE=2>)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(LIST/ (</FONT></TT><TT><FONT SIZE=2><B>1</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>2) (</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT>
+</TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>4 5 7</FONT></FONT></TT><TT><FONT SIZE=2>)
+(</FONT></TT><TT><FONT SIZE=2><B>3</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>9))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(funcall (second </FONT></TT><TT><FONT SIZE=2><B>x</B></FONT></TT><TT><FONT SIZE=2>)
+</FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT><FONT SIZE=2>)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(</FONT></TT><TT><FONT COLOR="#ff0000"><FONT SIZE=2>4
+5 7</FONT></FONT></TT><TT><FONT SIZE=2>)&nbsp;&nbsp;&nbsp; ; list or
+values supplied under key 2</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Found</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(funcall (second </FONT></TT><TT><FONT SIZE=2><B>x</B></FONT></TT><TT><FONT SIZE=2>)
+</FONT></TT><TT><FONT SIZE=2><B>1</B></FONT></TT><TT><FONT SIZE=2>)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(2)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Values under key 1</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>T&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Found</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(funcall (second </FONT></TT><TT><FONT SIZE=2><B>x</B></FONT></TT><TT><FONT SIZE=2>)
+7)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>NIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; empty list (not found)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>NIL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+; Not found</FONT></TT></P>
+<P><A NAME="grouped-by-firsts-in-list-pairs/"></A><BR><!-- End of entry for GROUPED-BY-FIRSTS-IN-CONS-PAIRS/ --><!-- Entry for GROUPED-BY-FIRSTS-IN-LIST-PAIRS/ -->[Function]<BR><B>grouped-seconds-by-first/</B>
+<I>list-of-list-pairs </I><TT><FONT SIZE=2><I>&amp;key</I></FONT></TT>
+<I>test</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent to grouped-cdrs-by-car/, except that the input pairs
+come as a list of lists, instead of a list of conses. 
+</P>
+<P><A NAME="head-tail/"></A><BR><!-- End of entry for GROUPED-BY-FIRSTS-IN-LIST-PAIRS/ --><!-- Entry for HEAD-TAIL/ -->[Function]<BR><B>head-tail/</B>
+<I>list</I> =&gt; <I>first element as first return-value, rest of
+list as second return-value</I> 
+</P>
+<P>Returns head and tail of a lazy-list as return-values</P>
+<P>&nbsp;</P>
+<P><I>Example:</I></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(head-tail '(1 2 3 4 5))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>1</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(list/ 2 3 4 5 6) ;
+result is a lazy-list regardless of input; but will generally</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</TT><TT><FONT SIZE=2>; lazy-list implementation optimal to the
+input, e.g. list-based</FONT></TT></P>
+<P STYLE="margin-left: 2in"><TT><FONT SIZE=2>; for proper list input.</FONT></TT></P>
+<P>&nbsp;</P>
+<P><A NAME="head/"></A><BR><!-- End of entry for HEAD-TAIL/ --><!-- Entry for HEAD/ -->[Function]<BR><B>head/</B>
+<I>list</I> =&gt; <I>result</I> 
+</P>
+<P>Returns head of a list &ndash; equivalent of <I>car/</I></P>
+<P><A NAME="intersperse/"></A><BR><!-- End of entry for HEAD/ --><!-- Entry for INTERSPERSE/ -->[Function]<BR><B>intersperse/</B>
+<I>val</I> <I>list</I> =&gt; <I>result</I> 
+</P>
+<P>Returns a lazy-list with <I>val</I> interspersed between elements
+of <I>list</I>.</P>
+<P><A NAME="iterate/"></A><BR><!-- End of entry for INTERSPERSE/ --><!-- Entry for ITERATE/ -->[Function]<BR><B>iterate/</B>
+<I>from-previous element </I><TT><FONT SIZE=2><I>&amp;optional</I></FONT></TT>
+<I>end-before-func</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent of Haskell&rsquo;s <I>iterate</I> &ndash; returns an
+infinite list of element, then function <I>from-previous</I>
+successively applied to each list elemenet.</P>
+<P><A NAME="iteratex/"></A><BR><!-- End of entry for ITERATE/ --><!-- Entry for ITERATEX/ -->[Function]<BR><B>iteratex/</B>
+<I>input-to-contribution initial-input</I> =&gt; <I>result</I> 
+</P>
+<P>Rigged to default to iterate/ behavior, except
+input-to-contribution MUST return a list, even if that list is a list
+of one value. 
+</P>
+<P><A NAME="lazy"></A><BR><!-- End of entry for LATCH-ON/ --><!-- Entry for LAZY -->[Macro]<BR><B>lazy</B>
+<I>declaration* statement*</I> =&gt; <I>result</I> 
+</P>
+<P><BR>Enters an &quot;Eager&quot; context - calls to functions such
+as tail/ don&rsquo;t do do traversal before returning value; but at
+traversal time of the result. This context uses a special variable,
+and extends into sub-calls until overridden.&nbsp; Eager context is
+the default.&nbsp; Relevant functions are documented with their
+respective context effects.</P>
+<P><A NAME="length/"></A><BR><BR><!-- End of entry for LAZY --><!-- Entry for LAZY-LIST --><!-- End of entry for LAZY-LIST --><!-- Entry for LENGTH/ -->[Function]<BR><B>length/</B>
+<I>list</I> =&gt; <I>integer length</I> 
+</P>
+<P>Traverses its input list to the end, counting the elements.&nbsp;
+Where possible, (input is an array or other considerations) <I>length/</I>
+attempts to avoid traversal.</P>
+<P><A NAME="list*/"></A><BR><!-- End of entry for LENGTH/ --><!-- Entry for LET/ -->[Function]<BR><B>list*/</B>
+<TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT> <I>list-list-terminated</I>
+=&gt; <I>result</I> 
+</P>
+<P><I>Identical to prepend/</I></P>
+<P>Equivalent of CL&rsquo;s <I>list*</I> - returns a lazy-list of all
+input parameters, except for the last which must be a list or
+lazy-list and has its elements chained onto the end.</P>
+<P><A NAME="list/"></A><BR><!-- End of entry for LIST*/ --><!-- Entry for LIST/ -->[Function]<BR><B>list/</B>
+<TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT> <I>rest</I> =&gt;
+<I>result</I> 
+</P>
+<P>Equivalent of CL&rsquo;s <I>list</I> function &ndash; returns a
+lazy-list comprising all input parameters (in implementation, this
+list will be marked as proper-list-based and will enjoy certain
+optimizations in functions using it).</P>
+<P><A NAME="loop-over/"></A><BR><!-- End of entry for LIST/ --><!-- Entry for LOOP-OVER/ -->[Macro]<BR><B>loop-over/</B>
+<I>symbol lazy-list declaration* statement*</I> =&gt; <I>NIL</I></P>
+<P>Runs <I>*statement*</I> with <I>symbol</I> taking on the value of
+each element in <I>lazy-list</I>.&nbsp; Note:&nbsp; Only accepts
+lazy-lists.</P>
+<P><A NAME="map/"></A><BR><!-- End of entry for LOOP-OVER/ --><!-- Entry for MAP/ -->[Function]<BR><B>map/</B>
+<I>function first </I><TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT>
+<I>other-lazy-lists</I> =&gt; <I>lazy-list</I> 
+</P>
+<P>Quintessential map function &ndash; takes multiple
+lists/lazy-lists, traverses and passes the current from each as
+parameters to <I>function</I>.&nbsp; Stops on reaching the end of any
+of its input lists (i.e. the shortest).</P>
+<P><A NAME="memoized/"></A><BR><!-- End of entry for MAP/ --><!-- Entry for MEMOIZED/ -->[Function]<BR><B>memoized/</B>
+<I>list</I> =&gt; <I>result</I> 
+</P>
+<P>Memoizes list nodes for traversal and (where underlying list
+dictates) value.&nbsp; Any links traversed or values made
+available/extracted will be stored in memory for future accesses.&nbsp;&nbsp;
+Generally detects lists that are already memoized, or that are based
+on a static structure (e.g. proper list) and returns its input list.</P>
+<P>&nbsp;</P>
+<P>[Function]<BR><B>non-null/</B> <I>list</I> =&gt; <I>Boolean, NIL
+or something else</I></P>
+<P>NIL if list contains contents, non-NIL if empty</P>
+<P><A NAME="nth/"></A><BR><!-- End of entry for MEMOIZED/ --><!-- Entry for NTH/ -->[Function]<BR><B>nth/</B>
+<I>index list</I> =&gt; <I>value</I></P>
+<P>Traverses <I>index</I> elements through list and returns the
+evaluated value at that location.</P>
+<P><A NAME="nthcdr/"></A><BR><!-- End of entry for NTH/ --><!-- Entry for NTHCDR/ -->[Function]<BR><B>nthcdr/</B>
+<I>to-drop list</I> =&gt; <I>result lazy-list</I></P>
+<P><I>Identical to drop/</I></P>
+<P>Returns lazy-list with first <I>to-drop</I> elements
+skipped/traversed from list, or empty list if end reached..</P>
+<P><I>In Eager context: </I>Traverses list immediately, returning
+sub-list after <I>drop-list</I> traversals..</P>
+<P><I>In Lazy context:</I> Does not traverse <I>list</I> &ndash;
+first traversal of result will trigger test to find first non-NIL.&nbsp;
+(Storage warning:&nbsp; result will internally keep references to
+original list + to-drop).</P>
+<P><A NAME="nub-by/"></A><BR><!-- End of entry for NTHCDR/ --><!-- Entry for NUB-BY/ -->[Function]<BR><B>nub-by/</B>
+<I>equality list</I> =&gt; <I>lazy-list of uniques</I></P>
+<P>Equality has to be one of the valid inputs to :test field in CL
+make-hash-table (&lsquo;eq, &lsquo;eql, &lsquo;equal, &lsquo;equalp)</P>
+<P>Returns a memoized list with uniqueness guaranteed by hash-table
+test.&nbsp; <I>List</I> is scanned on an as-needed basis to satisfy
+initial requests to result.</P>
+<P><A NAME="nub/"></A><BR><!-- End of entry for NUB-BY/ --><!-- Entry for NUB/ -->[Function]<BR><B>nub/</B>
+<I>list</I> =&gt; <I>result</I> 
+</P>
+<P>Basically nub-by/ with its first parameter as &lsquo;eql</P>
+<P><A NAME="null/"></A><BR><!-- End of entry for NUB/ --><!-- Entry for NULL/ -->[Function]<BR><B>null/</B>
+<I>list</I> =&gt; <I>Boolean, NIL or something else</I></P>
+<P>Returns non-NIL if lazy-list is non-empty.&nbsp; For lazy-lists
+that aren&rsquo;t based on a fixed container, this may cause
+traversal through a single element to determine end.</P>
+<P><A NAME="or/"></A><BR><!-- End of entry for NULL/ --><!-- Entry for OR/ -->[Function]<BR><B>or/</B>
+<I>list</I> =&gt; <I>NIL or first non-NIL</I> element in list</P>
+<P>Returns first non-NIL in list.&nbsp; For lazy-lists, traverses
+only to the first non-NIL element.&nbsp; Where relevant, causes
+evaluation (to value) of traversed elements.</P>
+<P><A NAME="position/"></A><BR><!-- End of entry for OR/ --><!-- Entry for POSITION/ -->[Function]<BR><B>position/</B>
+<I>item list </I><TT><FONT SIZE=2><I>&amp;key</I></FONT></TT> <I>test</I>
+=&gt; <I>result</I> 
+</P>
+<P STYLE="margin-left: 1in">Analogous to CL&rsquo;s position function
+&ndash; traverses <I>list</I>, comparing value found with <I>item</I>
+using <I>test</I> (which defaults to &lsquo;eql).</P>
+<P><A NAME="prepend/"></A><BR><!-- End of entry for POSITION/ --><!-- Entry for PREPEND/ -->[Function]<BR><B>prepend/</B>
+<TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT> <I>list-list-terminated</I>
+=&gt; <I>result</I> 
+</P>
+<P><I>Identical to list*/</I></P>
+<P>Equivalent of CL&rsquo;s <I>list*</I> - returns a lazy-list of all
+input parameters, except for the last which must be a list or
+lazy-list and has its elements chained onto the end.</P>
+<P><A NAME="rcurried"></A><BR><!-- End of entry for PREPEND/ --><!-- Entry for RCURRIED -->[Function]<BR><B>rcurried</B>
+<I>function </I><TT><FONT SIZE=2><I>&amp;rest</I></FONT></TT> <I>rargs</I>
+=&gt; <I>function</I> 
+</P>
+<P>Returns a function that applies its parameters + <I>rargs</I> to
+<I>function</I></P>
+<P><A NAME="rcurried1"></A><BR><!-- End of entry for PREPEND/ --><!-- Entry for RCURRIED -->[Function]<BR><B>reverse/</B>
+<I>list</I> =&gt; <I>function</I> 
+</P>
+<P>Returns a lazy-list of the items reversed. In Eager mode, pays the
+static hit before returning &ndash; in lazy context, return builds
+the static list on first extraction.</P>
+<P><BR><!-- End of entry for RCURRIED --><!-- Entry for SECOND/ -->[Function]<BR><B>scanl/</B>
+<I>function first list</I> =&gt; <I>list of intermediate results</I></P>
+<P>Equivalent of Haskell&rsquo;s <I>scanl</I> &ndash; better
+explained on the net.</P>
+<P><BR><!-- End of entry for FOLDL/ --><!-- Entry for FOLDL1/ -->[Function]<BR><B>scanl1/</B>
+<I>function list</I> =&gt; <I>list of intermediate results</I></P>
+<P>Equivalent of Haskell&rsquo;s <I>scanl1</I> &ndash; better
+explained on the net.</P>
+<P><BR><!-- End of entry for FOLDL1/ --><!-- Entry for FOLDR/ -->[Function]<BR><B>scanr/</B>
+<I>function first list</I> =&gt; <I>list of intermediate results</I></P>
+<P>Equivalent of Haskell&rsquo;s <I>scanr</I> &ndash; better
+explained on the net.</P>
+<P><BR><!-- End of entry for FOLDR/ --><!-- Entry for FOLDR1/ -->[Function]<BR><B>scanr1/</B>
+<I>function list</I> =&gt; <I>list of intermediate results</I></P>
+<P>Equivalent of Haskell&rsquo;s scanr1 &ndash; better explained on
+the net.</P>
+<P><A NAME="second/"></A><BR><!-- End of entry for FOLDR1/ --><!-- Entry for GROUPED-BY-FIRSTS-IN-CONS-PAIRS/ -->&nbsp;[Function]<BR><B>second/</B>
+<I>list</I> =&gt; <I>result</I> 
+</P>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Analogous to CL&rsquo;s <I>second</I>, returns the second element in
+supplied sequence/lazy-list, nil if list is smaller than length 2.</P>
+<P><A NAME="self-ref-list/"></A><BR><!-- End of entry for SECOND/ --><!-- Entry for SELF-REF-LIST/ -->[Macro]<BR><B>self-ref-list/</B>
+<I>ref-name declaration* statement*</I> =&gt; <I>lazy-list</I></P>
+<P>Defines a lexical context in which <I>ref-name</I> is assigned the
+list defined by <I>statement</I>, which may refer to itself via
+<I>ref-name</I>.</P>
+<P>The forms in <I>statement</I> are executed in a lazy evaluation
+context.&nbsp; This is due to a convention amongst lazy-list
+functions that traverse lists, that they don&rsquo;t actually attempt
+traversal until the first request against them.&nbsp; While the lazy
+context can be overridden/the list otherwise traversed, any attempt
+to do so before the full <I>statement</I> form is evaluated will
+fail.</P>
+<P>The evaluated list is memoized/cached.</P>
+<P>&nbsp;</P>
+<P>The forms in <I>statement</I> are executed to create the
+underlying memoized list <I>only on first traversal</I>.&nbsp; This
+is a performance optimization to accommodate most CL implementations,
+where callers of a function keep that reference ineligible for
+garbage collection.</P>
+<P>Consider the clich&eacute;d Fibonacci example:</P>
+<P>&nbsp;</P>
+<P STYLE="margin-left: 1in">(nth/ 1000000</P>
+<P STYLE="margin-left: 1in">&nbsp;(<FONT COLOR="#008000"><B>self-ref-list/</B></FONT>
+<FONT COLOR="#0000ff"><B>fib</B></FONT> (list*/ 1 1 (map/ #'+ <FONT COLOR="#0000ff"><B>fib</B></FONT>
+(tail/ <FONT COLOR="#0000ff"><B>fib</B></FONT>)))))</P>
+<P>&nbsp;</P>
+<P>This example requires the memorization to keep this from becoming
+the recursive solution (performance wise).&nbsp; However, if the
+caller to <I>nth/</I> were to keep the pointer to the head, every
+calculated result would be kept ineligible for garbage collection.&nbsp;
+Thus, the forms inside the self-ref-list are only evaluated upon the
+first access by <I>nth/</I>&rsquo;s implementation starting
+traversal, and the head of the memoized chain is not kept by the
+caller, only the ability to request the list be recreated from
+scratch.</P>
+<P>In this Fibonacci example, due to the implementation&rsquo;s
+details, as <I>nth/ </I>traverses; only the &ldquo;previous&rdquo;
+and &ldquo;current&rdquo; numerical values are kept ineligible for
+garbage collection.</P>
+<P>&nbsp;</P>
+<P>In short, it works the way it does to allow control over or
+minimization of the memory footprint in calculating solutions based
+upon self-referencing lists.</P>
+<P><A NAME="sort-by/"></A><BR><!-- End of entry for SELF-REF-LIST/ --><!-- Entry for SORT-BY/ -->[Function]<BR><B>sort-by/</B>
+<I>ordering list</I> =&gt; <I>list</I></P>
+<P>Sorts <I>list</I> via dual-input function <I>ordering</I>
+(returning if first param should be before second).</P>
+<P>&nbsp;</P>
+<P><I>In Eager context: </I>Performs actual sort and creation of
+stored list of sorted values at point of call, returning a CL
+proper-list based lazy-list.</P>
+<P><I>In Lazy context:</I> Defers creation of persistent sorted list
+until first element is traversed.&nbsp; Future advances through list
+traverse a persistent proper list.&nbsp; (Performance note:&nbsp;
+Re-traversing the result list from the start causes a rerun of the
+sort algorithm/creation of a new persistent sorted result.&nbsp; This
+is of concern if double-scanning the result list).</P>
+<P>&nbsp;</P>
+<P><A NAME="sort/"></A><BR><!-- End of entry for SORT-BY/ --><!-- Entry for SORT/ -->[Function]<BR><B>sort/</B>
+<I>list</I> =&gt; <I>result</I> 
+</P>
+<P>Basically <I>sort-by/</I> with <I>ordering</I> parameter set to
+#'&lt;</P>
+<P>&nbsp;</P>
+<P>[Function]<BR><B>split-at/</B> <I>index list</I> =&gt; <I>list
+from before index, list after</I></P>
+<P>First result is pre-index, second result is list for at predicate
+true and later.&nbsp; First result stores a persistent linked-list of
+values, except in lazy mode when this linked list is created only on
+first traversal.</P>
+<P><I>In Eager context: </I>First return value is linked-list based
+lazy-list, second reads from input <I>list</I> from index onward.</P>
+<P><I>In Lazy context:</I>&nbsp; First traversal of either result
+will cause the traversal through <I>list</I> to determine the actual
+split lists.&nbsp; From then on, the result lists will approximate
+their <I>Eager</I> counterparts, albeit not being typed for any
+optimizations based on their contents.</P>
+<P>&nbsp;</P>
+<P>&nbsp;[Function]<BR><B>split-when/</B> <I>predicate list</I> =&gt;
+<I>list from before predicate true, list after</I></P>
+<P>First result is pre-predicate-true, second result is list for at
+predicate true and later.&nbsp; First result stores a persistent
+linked-list of values, except in lazy mode when this linked list is
+created only on first traversal.</P>
+<P><I>In Eager context: </I>First return value is linked-list based
+lazy-list, second reads from input <I>list</I> from predicate-true
+point onward.</P>
+<P><I>In Lazy context:</I>&nbsp; First traversal of either result
+will cause the traversal through <I>list</I> to determine the actual
+split lists.&nbsp; From then on, the result lists will approximate
+their <I>Eager</I> counterparts, albeit not being typed for any
+optimizations based on their contents.</P>
+<P><A NAME="split-down-on-test/"></A><BR><!-- End of entry for SORT/ --><!-- Entry for SPLIT-DOWN-ON-TEST/ -->[Function]<BR><B>split-down-on-test/</B>
+<I>test list </I><TT><FONT SIZE=2><I>&amp;key</I></FONT></TT>
+<I>keep-split-causing-elements keep-empty-non-split
+process-split-causing-element process-non-split-causing-elements-list</I>
+=&gt; <I>List of split lists, possibly including the split-causing
+elements</I></P>
+<P>With default parameters, <I>split-down-on-test/</I> returns a
+lazy-list of lazy-lists containing contiguous elements of <I>list</I>
+for which <I>test</I> returns nil.</P>
+<P>The parameter <I>keep-split-causing-elements</I> defaults to NIL;
+but with a non-NIL value causes the items for which <I>test</I>
+return non-NIL to be included in the result list &ndash; albeit on
+their own, not in group lists.</P>
+<P>The parameter <I>keep-empty-non-split</I> defaults to T &ndash;NIL
+empty lists (between adjacent separators, or when separators at start
+or end) are culled.</P>
+<P>The parameter <I>process-split-causing-element</I> accepts a
+function that can be used to transform the elements retained by
+<I>keep-split-causing-elements</I></P>
+<P>The parameter <I>process-non-split-causing-elements-list</I>
+allows transformation of the contiguous non-splitting element lists.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><I>Example:</I></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(split-down-on-test/ #'evenp (list 1 3 2 5 5 7
+8 7 9))</FONT></TT></P>
+<P STYLE="margin-left: 1in">(LIST/&nbsp; (LIST 1 3) (LIST/ 5 5 7)
+(LIST/ 7 9))</P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(split-down-on-test/ #'evenp (list 1 3 2 5 5 7
+8 7 9) </FONT></TT><TT><FONT SIZE=2><B>:keep-split-causing-elements</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>t)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(LIST/ (LIST/ 1 3) </FONT></TT><TT><FONT SIZE=2><B>2</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(LIST/ 5 5 7) </FONT></TT><TT><FONT SIZE=2><B>8</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(LIST/ 7 9))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(split-down-on-test/ #'evenp (list 1 3 2 5 5 7
+8 7 9) :keep-split-causing-elements t </FONT></TT><TT><FONT SIZE=2><B>:process-split-causing-element
+(lambda (x) (* x 1000))</B></FONT></TT><TT><FONT SIZE=2>)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(LIST/ (LIST/ 1 3) </FONT></TT><TT><FONT SIZE=2><B>2000</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(LIST/ 5 5 7) </FONT></TT><TT><FONT SIZE=2><B>8000</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(LIST/ 7 9))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(split-down-on-test/ #'evenp (list 1 3 2 5 5 7
+8 7 9) :keep-split-causing-elements t
+</FONT></TT><TT><FONT SIZE=2><B>:process-non-split-causing-elements-list
+(curried #'map/ (curried #'* 10))</B></FONT></TT><TT><FONT SIZE=2>)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(LIST/ (LIST/ </FONT></TT><TT><FONT SIZE=2><B>10
+30</B></FONT></TT><TT><FONT SIZE=2>) 2 (LIST/ </FONT></TT><TT><FONT SIZE=2><B>50
+50 70</B></FONT></TT><TT><FONT SIZE=2>) 8 (LIST/ </FONT></TT><TT><FONT SIZE=2><B>70
+90</B></FONT></TT><TT><FONT SIZE=2>))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT></P>
+<P>Performance:&nbsp; See <I>split-on-test</I> from which
+<I>split-down-on-test</I>&rsquo;s actions are composed.&nbsp; By
+necessity, traversal through the result items necessitates the
+scan/creation of the prior.&nbsp; Each non-split list returned is
+cached/memoized.</P>
+<P><A NAME="split-on-test/"></A><BR><!-- End of entry for SPLIT-DOWN-ON-TEST/ --><!-- Entry for SPLIT-ON-TEST/ -->[Function]<BR><B>split-on-test/</B>
+<I>test list</I> =&gt; <I>List representing values before test true,
+list representing after test true, call returning value at test true</I></P>
+<P>Returns 2 lists (before and after test-true), and a function (as
+third return) that returns the value at test-true, and a T/Nil if
+test-true were actually found (emptiness of the 2 lists is not
+evidence one way or another).</P>
+<P>The first/&rdquo;before&rdquo; list is cached/memoized on scan.</P>
+<P>The second/&rdquo;after&rdquo; return list (after test) is not
+memoized; but causes the full evaluation of the &ldquo;before&rdquo;
+upon traversal.</P>
+<P>The third value, the call-for-value-at-test, causes the evaluation
+of the &ldquo;before&rdquo; list upon traversal.</P>
+<P>&nbsp;</P>
+<P>Performance: Basically, <I>split-on-test</I> is lazy in terms of
+traversal of list or application of test; but, by necessity, the 2<SUP>nd</SUP>
+and 3<SUP>rd</SUP> return values require that this traversal have
+taken place.</P>
+<P>&nbsp;</P>
+<P><BR><!-- End of entry for SPLIT-ON-TEST/ --><!-- Entry for STRING-FROM-CHARS/ -->[Function]<BR><B>split-positional/</B>
+<I>positional list</I> =&gt; <I>Lazy-list of split results</I></P>
+<P>Splits input <I>list</I> to list of sub-lists based upon the
+position or positions described in <I>positional</I>.</P>
+<P>Parameter <I>positional</I> can be one of:</P>
+<P STYLE="margin-left: 1in">Integer:&nbsp; Returns a list of lists
+with the first terminating prior to integer in <I>positional</I>, the
+remainder, (if any), will be in a second list.</P>
+<P STYLE="margin-left: 1in">Function:&nbsp; A function that accepts
+an integer and returns a T or NIL, with T indicating a split point.</P>
+<P STYLE="margin-left: 1in">List/lazy-list of integers, in order &ndash;
+indicates a sequence of split points.</P>
+<P>The result list of <I>split-positional</I> is always comprised of
+the contents of <I>list</I>, with the <I>positional</I> driving only
+the sub-lists breakdown.&nbsp; Each split-point indicates the start
+of a sub-list, with the exception of the first if it is not indicated
+by <I>positional</I>.</P>
+<P>&nbsp;</P>
+<P><I>Example:</I></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(split-positional/ </FONT></TT><TT><FONT SIZE=2><B>'(5
+7 8) </B></FONT></TT><TT><FONT SIZE=2>'(0 10 20 30 40 50 60 70 80 90
+100 110 120))</FONT></TT></P>
+<P STYLE="margin-left: 1in">(LIST/ (LIST/ 0 10 20 30 40) (LIST/ 50
+60) (LIST/ 70) (LIST/ 80 90 100 110 120))&nbsp; ; Indices dictated by
+<I>positional</I></P>
+<P STYLE="margin-left: 1in">&nbsp;</P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(split-positional/ (</FONT></TT><TT><FONT SIZE=2><B>composed
+#'zerop (rcurried #'mod 3))</B></FONT></TT><TT> </TT><TT><FONT SIZE=2>'(0
+10 20 30 40 50 60 70 80 90 100 110 120))</FONT></TT></P>
+<P STYLE="margin-left: 1in">(LIST/ (LIST/ 0 10 20) (LIST/ 30 40 50)
+(LIST/ 60 70 80) (LIST/ 90 100 110) (LIST/ 120))&nbsp; ; indices
+validated against <B>mod-3</B> function provided to <I>positional</I></P>
+<P>&nbsp;</P>
+<P><A NAME="tail/"></A><BR><!-- End of entry for SPLIT-ON-TEST/ --><!-- Entry for STRING-FROM-CHARS/ -->&nbsp;[Function]<BR><B>tail/</B>
+<I>list</I> =&gt; <I>result list</I></P>
+<P>Basically equivalent of <I>cdr/</I>or (<I>drop 1 list)</I> &ndash;
+returns the sub-list after traversing in by one.</P>
+<P><I>In Eager Context:</I> Traverses immediately, returns a list
+referencing only the remainder.</P>
+<P><I>In Lazy Context:</I> Defers traversal until first traversal of
+result list.&nbsp; Holds a reference to <I>list</I> plus traversal
+logic.&nbsp; Performance Warning:&nbsp; <I>tail/</I> in a lazy
+context will keep a reference to all storage retained by <I>list</I>.</P>
+<P><A NAME="tails/"></A><BR><!-- End of entry for TAIL/ --><!-- Entry for TAILS/ -->[Function]<BR><B>tails/</B>
+<I>list</I> =&gt; <I>Lazy-list of lists</I></P>
+<P>Returns a list of lists, where each sub-list represents a
+successive <I>cdr</I> of the preceding one, up to and including an
+empty list for the last.&nbsp; Doesn&rsquo;t really cost more than
+traversal.</P>
+<P>&nbsp;</P>
+<P><I>Example:</I></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2><B>REPL&gt;</B></FONT></TT><TT>
+</TT><TT><FONT SIZE=2>(tails/ '(1 2 3 4 5))</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT><FONT SIZE=2>(LIST/</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT><TT><FONT SIZE=2>(LIST/ 1
+2 3 4 5)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT><TT><FONT SIZE=2>(LIST/ 2
+3 4 5)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT><TT><FONT SIZE=2>(LIST/ 3
+4 5)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT><TT><FONT SIZE=2>(LIST/ 4
+5)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT><TT><FONT SIZE=2>(LIST/ 5)</FONT></TT></P>
+<P STYLE="margin-left: 1in"><TT>&nbsp;</TT><TT><FONT SIZE=2>(LIST/))</FONT></TT></P>
+<P><A NAME="take-while/"></A><BR><!-- End of entry for TAILS/ --><!-- Entry for TAKE-WHILE/ -->[Function]<BR><B>take-while/</B>
+<I>test list</I> =&gt; <I>List</I> 
+</P>
+<P>Returns a list composed of elements of <I>list</I> up until (but
+not including) the first element for which <I>test</I> returns
+non-NIL.</P>
+<P>Performance note:&nbsp; Result list maintains a reference to <I>list</I>
+(keeping it ineligible for garbage collection).&nbsp; Convert result
+to a fixed container (one traversal + new storage) if this is
+undesirable.</P>
+<P><A NAME="take/"></A><BR><!-- End of entry for TAKE-WHILE/ --><!-- Entry for TAKE/ -->[Function]<BR><B>take/</B>
+<I>to-take list</I> =&gt; <I>List</I></P>
+<P>Returns a list of the first <I>to-take</I> elements in <I>list</I>
+if available.</P>
+<P>Performance note:&nbsp; Result list maintains a reference to <I>list
+</I>(keeping it ineligible for garbage collection).&nbsp; Convert
+result to a fixed container (one traversal + new storage) if this is
+undesirable.</P>
+<P><A NAME="third/"></A><BR><!-- End of entry for TAKE/ --><!-- Entry for THIRD/ -->[Function]<BR><B>third/</B>
+<I>list</I> =&gt; <I>result</I> 
+</P>
+<P>Equivalent of CL&rsquo;s <I>third</I> &ndash; returns the third
+element in an input list/lazy-list/sequence if available.</P>
+<P><BR><BR>
+</P>
+<P><!-- End of entry for TO-LIST --><!-- Entry for TO-STRING --><BR><BR>
+</P>
+</BODY>
+</HTML>

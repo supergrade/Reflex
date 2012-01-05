@@ -1,0 +1,6 @@
+
+http://<localhost>:82/reflex/<your identifier>/write
+(body is filed away)
+
+http://<localhost>:82/reflex/<your identifier>/read
+You get back log in reverse-order

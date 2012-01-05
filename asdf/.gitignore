@@ -1,0 +1,56 @@
+# really this is private to my build process
+push
+resbcl
+reccl
+reecl
+regcl
+
+# Temporary files from documentation build
+doc/asdf/
+doc/asdf.aux
+doc/asdf.cp
+doc/asdf.cps
+doc/asdf.fn
+doc/asdf.fns
+doc/asdf.html
+doc/asdf.info
+doc/asdf.ky
+doc/asdf.log
+doc/asdf.pdf
+doc/asdf.pg
+doc/asdf.toc
+doc/asdf.tp
+doc/asdf.vr
+doc/asdf.vrs
+doc/asdf.t2d/
+
+# We build these at various stages in the build and test process
+LICENSE
+tmp/
+*.dribble
+*.fasl
+*.dfsl
+*.cfsl
+*.fas
+*.lib
+*.[oahcisS]
+*.*fsl
+*.x86f
+*.bak
+*.data
+*.ufasl
+test/try-reloading-dependency.asd
+test/fileMissing.lisp
+
+# debian stuff
+build-stamp
+debian/cl-asdf.debhelper.log
+debian/cl-asdf.postinst.debhelper
+debian/cl-asdf.prerm.debhelper
+debian/cl-asdf.substvars
+debian/cl-asdf/
+debian/files
+debian/patches/
+.pc
+
+/.DS_Store

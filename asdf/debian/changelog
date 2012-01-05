@@ -1,0 +1,704 @@
+cl-asdf (2:2.015-1) unstable; urgency=low
+
+  Promoting 2.014.17 as 2.015. Since 2.014, we have the following improvements:
+  * Portability: support cormanlisp, xcl;
+    fixes for cmucl, ecl; tweaks for abcl, allegro, clisp, genera, lispworks.
+  * Feature: un-cerror and actually fix the :force '(sys1 sys2 sys3) feature,
+    introduced in 2002 and never working before.
+  * Feature: classes asdf:cl-source-file.cl and asdf:cl-source-file.lsp
+    for people who use these file type extensions.
+  * Semantic change: the source-registry eagerly gathers a list of .asd,
+    rather than querying the filesystem over and over again.
+  * API change: exposing function asdf:search-for-system-definition as looking
+    through asdf:*system-definition-search-functions* for either pathnames *or*
+    (new feature) system objects. Should make quicklisp happier.
+  * Better support for asdf upgrading itself, with new function
+    asdf:upgrade-asdf that knows to invalidate old systems when necessary,
+    and is magically invoked before to build any system that :depends-on asdf.
+    Make upgrade smoother some cases that were previously broken.
+  * More robust handling of version strings.
+  * Declaring function asdf:system-definition-pathname obsolete, but still
+    supporting it for now, as an alias for asdf:system-source-file.
+  * Various refactorings of internals. Splitting a function asdf::perform-plan
+    out of the default asdf:operate method.
+    asdf::register-system now takes only one argument.
+  * Tests to prevent the regressions experienced during this development cycle
+  * Tried and reverted: attempts to make asdf more verbose when it's verbose,
+    but not verbose by default.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Sat, 07 May 2011 14:34:40 -0400
+
+cl-asdf (2:2.014.3-1) unstable; urgency=low
+
+  * yet another debian package attempt
+  * update to 2.014.3, workaround for ABCL make-pathname bug (same as on XCL).
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Mon, 04 Apr 2011 23:27:30 -0400
+
+cl-asdf (2:2.014.2-1) unstable; urgency=low
+
+  * yet another attempt at a debian package.
+  * update to 2.014.2, adds XCL support.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Thu, 31 Mar 2011 14:08:09 -0400
+
+cl-asdf (2:2.014.1-1) unstable; urgency=low
+
+  * new attempt for a debian package.
+  * while I'm at it, update to 2.014.1 which will make CMUCL happy.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Tue, 29 Mar 2011 18:19:19 -0400
+
+cl-asdf (2:2.014-3) unstable; urgency=low
+
+  * another attempt with my new GPG key
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Sun, 27 Mar 2011 19:33:43 -0400
+
+cl-asdf (2:2.014-2) unstable; urgency=low
+
+  * tweak Makefile for debian packaging.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Sun, 27 Mar 2011 17:17:15 -0400
+
+cl-asdf (2:2.014-1) unstable; urgency=low
+
+  * Blessing 2.013.7 as 2.014.
+  * Fixed bug preventing upgrade from 2.000 to 2.008 (test added)
+  * Better support for URL pathnames on SCL (test added)
+  * Robustified defsystem-depends-on
+  * Cosmetic changes:
+    * better more portably readable error messages.
+    * remove forward references, again (test added)
+    * canonicalize system names earlier (slight robustness improvement)
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Sun, 27 Mar 2011 16:45:58 -0400
+
+cl-asdf (2:2.013.3-1) unstable; urgency=low
+
+  * Packaging 2.013.3 because 2.013 had important issues.
+  * Fix important upgradability issue with 2.013 (unable to upgrade from
+  versions 2.00[0-8] that have a separate ASDF-UTILITIES)
+  * Fix minor verbosity issue (forward reference makes sbcl noisy
+  when loading asdf.lisp directly as does quicklisp.)
+  * Also, enhance support for SCL.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Mon, 21 Mar 2011 16:24:27 -0400
+
+cl-asdf (2:2.013-1) unstable; urgency=low
+
+  * Blessing 2.012.12: many small improvements since 2.012.
+  * Fixes and cleanups for CLISP, ECL, SBCL.
+  * Added support for two legacy platforms: (R)MCL, Genera
+  * Cleanup features: now using #+asdf-unix and #+asdf-window
+  * Many cleanups and improvements regarding our portable pathname layer
+  * Fixes a regression in source-registry scanning from 2.011.4
+  * Remember *source-registry-parameter* and *output-translations-parameter*
+  * Export and document coerce-pathname (f.k.a merge-component-name-type)
+  * allow description and long-description for all components
+  * Several documentation updates
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Sat, 19 Mar 2011 20:01:34 -0400
+
+cl-asdf (2:2.012-1) unstable; urgency=low
+
+  * Blessing 2.011.9: more fixes to corner cases.
+  * Added :here directive to pathname DSL,
+    robustified ECL support,
+    fixed infinite loop when filesystem clock is in the future,
+    extended the AOT DSL and made it more futureproof,
+    fixed how clear-system interacts with map-systems,
+    fixed use of directory under old SBCLs,
+    fixed run-shell-command status and version string under clisp,
+    fixed error messages.
+  * Synchronized version of asdf.asd and asdf.lisp, automatically.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Mon, 03 Jan 2011 06:59:17 +0100
+
+cl-asdf (2:2.011-1) unstable; urgency=low
+
+  * Mostly same as 2.010.9: several minor tweaks and bug fixes since 2.010.
+  * Will be happier: users of implementations ACL, GCL; users of libraries
+    CL-Launch, XCVB; future former users of ASDF-Binary-Locations; people
+    with missing dependencies (in lieu of error-in-error); people extending
+    ASDF (notably Stelian Ionescu), who'd like to use keywords to name
+    component classes.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Sun, 28 Nov 2010 13:21:34 -0500
+
+cl-asdf (2:2.010-1) unstable; urgency=low
+
+  * same as 2.146
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Thu, 28 Oct 2010 15:58:36 -0700
+
+cl-asdf (2:2.009-1) unstable; urgency=low
+
+  * new upstream release 2.009, identical to 2.134 from master.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Wed, 06 Oct 2010 13:26:36 -0400
+
+cl-asdf (2:2.008-1) unstable; urgency=low
+
+  * new upstream: removes unwanted exports,
+    plays nicer with sbcl, cmucl, old clisp.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Fri, 10 Sep 2010 17:16:06 -0400
+
+cl-asdf (2:2.007-1) unstable; urgency=low
+
+  * new upstream, fixes lp#623992 introduced in 2.006, allows upgrade on SBCL.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Wed, 25 Aug 2010 23:22:13 -0400
+
+cl-asdf (2:2.006-1) unstable; urgency=low
+
+  * new upstream, with bug fixes and API changes.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Tue, 24 Aug 2010 18:43:48 -0400
+
+cl-asdf (2:2.005-1) unstable; urgency=low
+
+  * New upstream.
+  * Don't use dh-lisp
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Tue, 17 Aug 2010 13:57:04 -0400
+
+cl-asdf (2:2.004-1) unstable; urgency=low
+
+  * Imported new upstream, try not to diverge from it.
+  * Remove cl-cclan which was removed from the upstream repository.
+  * Updated Debian configuration and documentation.
+
+ -- Francois-Rene Rideau <fare@tunes.org>  Wed, 14 Jul 2010 14:06:50 -0400
+
+cl-asdf (2:1.704-1) unstable; urgency=low
+
+  * Imported new upstream.
+  * We now have a makefile for Documentation, use it
+  * Add debian/source/format for the stupid quilt mess
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Mon, 19 Apr 2010 21:37:48 +0200
+
+cl-asdf (2:1.627-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added dh_installinfo for info files. (Closes: #560290)
+  * Incorporated run-shell-command patch for LispWorks. Thanks tianchun!
+    (Closes: #457919)
+  * Added info that this version breaks clc
+  * Fix conflict with clc
+  * Small patch to make :implementation-type work for clc
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Thu, 25 Feb 2010 18:36:16 +0100
+
+cl-asdf (2:1.502-1) unstable; urgency=low
+
+  * new upstream, back to version numbers.
+  * added /etc/common-lisp/source-registry.conf.d/ directory
+  * Added README's to documentation
+  * it's debian/*.dirs not debian/*.dir\!
+  * Updated standard version, no real changes
+  * Added lintian overrides for cl-cclan
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Mon, 01 Feb 2010 07:31:06 +0100
+
+cl-asdf (1:20091221-1) unstable; urgency=low
+
+  * New upstream, version 1.374
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Thu, 31 Dec 2009 08:36:15 +0100
+
+cl-asdf (1:20090819-3) unstable; urgency=low
+
+  * Fixed the loop construct again. (Closes: #546205)
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Sat, 12 Sep 2009 10:08:23 +0100
+
+cl-asdf (1:20090819-2) unstable; urgency=low
+
+  * Fix the loop contruct. This makes ecl fail. (Closes: #545768)
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Thu, 10 Sep 2009 14:20:11 +0100
+
+cl-asdf (1:20090819-1) unstable; urgency=low
+
+  * New upstream, New homepage and new upstream repository.
+  * changed section to lisp
+  * now using debhelper v7
+  * added debian/README.building
+  * remove cvs2cl from dependencies
+  * remove upstream ChangeLog
+  * added dummy watch file
+  * added ${misc:Depends} to cl-asdf Depends
+  * Updated Standards-Version no real changes
+  * fixed Section of cl-asdf.doc-base
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Tue, 01 Sep 2009 08:20:28 +0100
+
+cl-asdf (1.111-1) unstable; urgency=low
+
+  * New upstream release.
+  * Updated standard version without real changes
+  * Corrected Vcs-Bzr field
+  * Move to using dh-lisp
+  * Fixed Vcs-Git field
+  * Changed to group maintanance
+  * recreated upstream changelog with git2cl
+  * Changed directory, so we depend on a newer clc
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Sat, 09 Feb 2008 10:07:21 +0100
+
+cl-asdf (1.109-2) unstable; urgency=low
+
+  * stop trying to dump the package, use the package name instead.
+    (Closes: #436129)
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Thu, 27 Sep 2007 05:42:20 +0200
+
+cl-asdf (1.109-1) unstable; urgency=low
+
+  * New upstream. Major changes:
+     + main change is the addition of system-relative-pathname function. This takes a
+       system name and a partial pathname and combines them to return a new pathname
+       _relative_ to the system. This is exported and lightly documented.
+     + this patch also updates preference-file-for-system/operation in an effort
+       to prevent it from being confused by *default-pathname-defaults* that include
+       a specific name and type.
+     + Removes inline component methods more carefully (and, I believe, correctly!). Helps keep LispWorks happy.
+     + Reworked asdf tests to make them more robust and perhaps more flexible too.
+  * Now use texlive to build.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Sun, 16 Sep 2007 14:45:57 +0200
+
+cl-asdf (1.107-1) unstable; urgency=low
+
+  * New upstream release, adding the system-relative-pathname
+    function.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Sun, 08 Apr 2007 23:05:18 +0200
+
+cl-asdf (1.106-1) experimental; urgency=low
+
+  * New upstream. Major changes:
+
+      + Minor patch in class-for-type that evaluates only *package* at read
+   time rather than (package-name *package*); this keeps case sensitive Lisps
+   happy all the time and keeps case insensitive lisps happily insensitive.
+
+      + A patch from Richard Kreuter that allows pathname defaulting to work
+   better with *load-truename* and *default-pathname-defaults*; this makes it
+   easier to work with defsystems in the REPL.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Wed, 14 Mar 2007 09:18:25 +0100
+
+cl-asdf (1.104-1) experimental; urgency=low
+
+  * Added XS-X-Vcs-Darcs header
+  * modified S-X-Vcs-Darcs to XS-Vcs-Darcs field
+  * New upstream. Major changes:
+     + add a better docstring for component-depends-on (via #lisp and Robert
+     Goldman)
+     + ASDF now sends output to *standard-output* (thanks to Richard M.
+     Kreuter).
+     + Slightly better SBCL_HOME treatement for SBCL.
+  * upload to experimental during the freeze
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Tue,  6 Feb 2007 08:21:06 +0100
+
+cl-asdf (1.101-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Wed, 20 Sep 2006 07:08:57 +0200
+
+cl-asdf (1.99-3) unstable; urgency=low
+
+  * Added tetex-bin to Build-Depends-Indep (Closes: #379532)
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Mon, 24 Jul 2006 19:34:49 +0200
+
+cl-asdf (1.99-2) unstable; urgency=low
+
+  * Move asdf.info files from sbcl to this package.
+  * move texinfo to BuildDependsIndep
+  * we build something build-indep
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Fri, 30 Jun 2006 23:18:40 +0200
+
+icl-asdf (1.99-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Mon, 19 Jun 2006 05:28:12 +0200
+
+cil-asdf (1.97-1) unstable; urgency=low
+
+  * New upstream release
+  * Moved debhelper to build-depeneds
+  * increased standards-version without real changes.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Sat, 20 May 2006 19:28:58 +0200
+
+
+cl-asdf (1.89-1) unstable; urgency=low
+
+  * Noticed that I actually increased the version with the CVS commit
+  * Updated the standards version
+  * Remove the prepare build stuff, build through darcs
+  * Improve duplicate names test: use equal instead of equalp.
+    From a comment from Faré.
+  * Remove CVS cruft
+  * Seperate CVS version of asdf.lisp from version of package. The tag
+    is not the version of the package
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Thu, 22 Sep 2005 12:52:31 +0200
+
+cl-asdf (1.86-5) unstable; urgency=low
+
+  * Fixed duplicate components patch to better handle reloading
+    defsystem files. Now works again with McClim. Closes: #310640
+  * Corrected dependencies.
+  * Added postinst rebuild of all clc-enabled lisps so the new version
+    actually gets loaded.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Wed, 25 May 2005 08:22:17 +0200
+
+cl-asdf (1.86-4) unstable; urgency=low
+
+  * My release script stripped the patch. So this should really contain the
+    patch. Damn.
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Tue, 10 May 2005 14:17:51 +0200
+
+cl-asdf (1.86-3) unstable; urgency=low
+
+  * Now checks if components names are unique Closes: #304972, #304970
+  * Fix dependency on common-lisp-controller  Closes: #308385
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Tue, 10 May 2005 07:50:25 +0200
+
+cl-asdf (1.86-2) unstable; urgency=low
+
+  * New maintainer. (Closes: #297349: O: cl-asdf -- Another System
+    Definition Facility)
+  * Adopted by Peter Van Eynde
+
+ -- Peter Van Eynde <pvaneynd@debian.org>  Tue,  1 Mar 2005 10:11:55 +0100
+
+cl-asdf (1.86-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed,  4 Aug 2004 21:19:16 -0600
+
+cl-asdf (1.84-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 12 May 2004 12:43:58 -0600
+
+cl-asdf (1.81-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 30 Dec 2003 12:12:38 -0700
+
+cl-asdf (1.80-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri,  5 Dec 2003 14:55:43 -0700
+
+cl-asdf (1.79-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 11 Nov 2003 16:12:07 -0700
+
+cl-asdf (1.78-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Thu,  9 Oct 2003 16:46:38 -0600
+
+cl-asdf (1.77.2-1) unstable; urgency=low
+
+  * Don't export asdf:wild-module as can cause a full warning when
+  reloading asdf
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon, 11 Aug 2003 21:55:16 -0600
+
+cl-asdf (1.77.1-1) unstable; urgency=low
+
+  * cclan.lisp: conditionalize for sbcl (closes: 201822)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Thu, 17 Jul 2003 23:30:57 -0600
+
+cl-asdf (1.77-1) unstable; urgency=low
+
+  * New upstream
+  * Add automated [cvs2cl] ChangeLog
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Thu, 17 Jul 2003 10:27:27 -0600
+
+cl-asdf (1.76) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Thu, 10 Jul 2003 16:42:48 -0600
+
+cl-asdf (1.75) unstable; urgency=low
+
+  * New upstream
+  * Use compat rather than DH_COMPAT
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Thu,  5 Jun 2003 00:15:11 -0600
+
+cl-asdf (1.73b) unstable; urgency=low
+
+  * Update README
+  * export two variables
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 28 May 2003 11:19:40 -0600
+
+cl-asdf (1.73) unstable; urgency=low
+
+  * Update README to mention asdf::*compile-file-warnings-behaviour*
+  (closes:194957)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 27 May 2003 16:00:36 -0600
+
+cl-asdf (1.72) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 20 May 2003 14:07:10 -0600
+
+cl-asdf (1.71) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 13 May 2003 09:33:51 -0600
+
+cl-asdf (1.70) unstable; urgency=low
+
+  * Add another check in check-component-values.
+  * Signal a generalized instance of SYSTEM-DEFINITION-ERROR
+  from check-component-values
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue,  6 May 2003 09:32:16 -0600
+
+cl-asdf (1.69) unstable; urgency=low
+
+  * Add check-component-values function with partial checking of components
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue,  6 May 2003 08:26:11 -0600
+
+cl-asdf (1.68) unstable; urgency=low
+
+  * New upstream with 'asdf:test-op
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 19 Mar 2003 10:16:01 -0700
+
+cl-asdf (1.66) unstable; urgency=low
+
+  * New upstream version, added changes to dependent system
+  compilations with :force option.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon, 17 Mar 2003 12:50:00 -0700
+
+cl-asdf (1.62) unstable; urgency=low
+
+  * New upstream, fixes a sbcl-specific directory name
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri,  7 Mar 2003 09:23:11 -0700
+
+cl-asdf (1.61-1) unstable; urgency=low
+
+  * New upstream, fixes 'load-source-op
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue,  4 Mar 2003 09:48:40 -0700
+
+cl-asdf (1.60-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon,  3 Mar 2003 12:40:27 -0700
+
+cl-asdf (1.59-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 14 Feb 2003 09:24:59 -0700
+
+cl-asdf (1.58-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Sun,  9 Feb 2003 11:55:03 -0700
+
+cl-asdf (1.57-1) unstable; urgency=low
+
+  * New upstream
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue,  4 Feb 2003 10:23:03 -0700
+
+cl-asdf (1.55-1) unstable; urgency=low
+
+  * New upstream.version (closes: 172074)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon,  9 Dec 2002 10:23:21 -0700
+
+cl-asdf (1.54-1) unstable; urgency=low
+
+  * New upstream.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri,  8 Nov 2002 07:30:41 -0700
+
+cl-asdf (1.49-1) unstable; urgency=low
+
+  * Remove clc-reregister-all-impl from postinst
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Sat,  5 Oct 2002 09:38:18 -0600
+
+cl-asdf (1.49) unstable; urgency=low
+
+  * New upstream release, fixes run-shell-command for allegro. Code
+    refactoring for run-shell-code.
+  * Support new CLC reregister command
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 25 Sep 2002 23:57:23 -0600
+
+cl-asdf (1.47) unstable; urgency=low
+
+  * Return numeric exit status for openmcl's run-shell-command
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 20 Sep 2002 10:22:36 -0600
+
+cl-asdf (1.46) unstable; urgency=low
+
+  * New upstream version, adds run-shell-command for openmcl
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 20 Sep 2002 10:11:48 -0600
+
+cl-asdf (1.45) unstable; urgency=low
+
+  * Changes to improve clisp support
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 20 Sep 2002 07:12:21 -0600
+
+cl-asdf (1.44.1-1) unstable; urgency=low
+
+  * Make cclan.asd a symlink, remove :pathname keyword
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 18 Sep 2002 00:19:26 -0600
+
+cl-asdf (1.44-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 17 Sep 2002 12:24:27 -0600
+
+cl-asdf (1.43-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Tue, 17 Sep 2002 10:34:57 -0600
+
+cl-asdf (1.42-2) unstable; urgency=low
+
+  * Add reregister-common-lisp-implementations call when installing cl-asdf.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon, 16 Sep 2002 08:31:13 -0600
+
+cl-asdf (1.42-1) unstable; urgency=low
+
+  * Remove Depends on lisp-compiler for cl-asdf (fixes problem with
+  circular dependencies)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Sat, 14 Sep 2002 11:59:58 -0600
+
+cl-asdf (1.42) unstable; urgency=low
+
+  * New upstream.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 13 Sep 2002 08:40:58 -0600
+
+cl-asdf (1.41) unstable; urgency=low
+
+  * Same release as 1.40, but with proper version number.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 13 Sep 2002 08:38:30 -0600
+
+cl-asdf (1.40) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 13 Sep 2002 07:31:27 -0600
+
+cl-asdf (1.39) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 11 Sep 2002 19:21:32 -0600
+
+cl-asdf (1.38) unstable; urgency=low
+
+  * New upstream version
+  * Re-add register and unregister clc-source for cclan
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 11 Sep 2002 13:39:51 -0600
+
+cl-asdf (1.35-1) unstable; urgency=low
+
+  * Comment call to register and unregister clc-source until new
+    version of clc is released. (closes: 158697)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 28 Aug 2002 18:58:59 -0600
+
+cl-asdf (1.35) unstable; urgency=high
+
+  * New upstream version, fixes important bugs.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 28 Aug 2002 09:36:58 -0600
+
+cl-asdf (1.34) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Wed, 28 Aug 2002 07:18:57 -0600
+
+cl-asdf (0.0+cvs.2002.08.26-1) unstable; urgency=low
+
+  * Add Common Lisp Controller registration functions for cl-cclan
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon, 26 Aug 2002 04:21:32 -0600
+
+cl-asdf (0.0+cvs.2002.08.26) unstable; urgency=low
+
+  * New upstream version
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Mon, 26 Aug 2002 01:23:48 -0600
+
+cl-asdf (0.0+cvs.2002.08.22) unstable; urgency=low
+
+  * Add new binary package: cl-cclan
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Thu, 22 Aug 2002 12:43:21 -0600
+
+cl-asdf (0.0+cvs.2002.08.18) unstable; urgency=low
+
+  * New upstream version
+  * Expand description in control file.
+  * Change version numbering scheme since upstream has native debian
+  directory
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Sat, 17 Aug 2002 14:25:33 -0600
+
+cl-asdf (0.0+cvs.2002.08.15-1) unstable; urgency=low
+
+  * Initial Release (closes: 157009)
+
+ -- Kevin M. Rosenberg <kmr@debian.org>  Fri, 16 Aug 2002 23:14:49 -0600
+
